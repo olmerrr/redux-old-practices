@@ -7,12 +7,13 @@ function Customer() {
   const [nationalId, setNationalId] = useState("");
 
   const dispatch = useDispatch();
-  function handleClick() {
+  function handleClick(e) {
+    e.preventDefault();
     if (fullName && nationalId) dispatch(createCustomer(fullName, nationalId))
   }
 
   return (
-    <div>
+    <form onSubmit={handleClick}>
       <h2>Create new customer</h2>
       <div className="inputs">
         <div>
@@ -29,9 +30,9 @@ function Customer() {
             onChange={(e) => setNationalId(e.target.value)}
           />
         </div>
-        <button onClick={handleClick}>Create new customer</button>
+        <button type="submit">Create new customer</button>
       </div>
-    </div>
+    </form>
   );
 }
 
