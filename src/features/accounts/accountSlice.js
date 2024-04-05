@@ -1,7 +1,8 @@
 const initialStateAccount = {
   balance: 0,
   loan: 0,
-  loanPurpose: ""
+  loanPurpose: "",
+  isLoading: false
 };
 
 export default function accountReducer(state = initialStateAccount, action) {
